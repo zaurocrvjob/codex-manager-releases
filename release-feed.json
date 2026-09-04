@@ -1,0 +1,219 @@
+{
+  "schema": 2,
+  "channel": "stable",
+  "latest": "0.8.6",
+  "repository": "zaurocrvjob/codex-manager-releases",
+  "channels": {
+    "stable": {
+      "latest": "0.8.6",
+      "ref": "v0.8.6",
+      "commit": "cb20a5b04ac6d0b2b910923d58a15510e81ec3e9",
+      "track_commit": false
+    },
+    "candidate": {
+      "latest": "0.8.6",
+      "ref": "v0.8.6",
+      "commit": "cb20a5b04ac6d0b2b910923d58a15510e81ec3e9",
+      "track_commit": false
+    }
+  },
+  "releases": [
+    {
+      "version": "0.8.6",
+      "date": "2026-09-04",
+      "title": "Безопасное добавление последовательных OpenAI-аккаунтов",
+      "summary": "Codex Manager автоматически регистрирует новый OpenAI-вход как отдельный A4/A5 без перезаписи существующих авторизаций и получает рабочий публичный канал автономных обновлений.",
+      "highlights": [
+        "Новый live identity получает отдельный приватный vault slot и OpenAI Compute Source; повторный вход возвращается в уже известный аккаунт без дубликата.",
+        "Legacy slots primary/second/third сохраняются без переименования, а монотонная нумерация продолжает их как account_4 и далее.",
+        "Ручной вход выполняется в изолированном CODEX_HOME и не меняет текущий host account до явного переключения.",
+        "Ошибки конфигурации, неоднозначная identity, symlink и выход за vault останавливают регистрацию без изменения существующих credentials.",
+        "Standalone-приложение проверяет публичный binary-only feed и открывает публичную страницу релиза вместо приватного репозитория исходников."
+      ],
+      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.8.6/Codex-Manager-0.8.6-macOS.dmg",
+      "sha256": "e16945fc1279ed44dc51c390f7788647c0fed2250d067ba2a696bde95ccac7ca",
+      "commit": "cb20a5b04ac6d0b2b910923d58a15510e81ec3e9"
+    },
+    {
+      "version": "0.8.5",
+      "date": "2026-09-02",
+      "title": "Цельная навигация, приложение с собственной identity и автообновление DMG",
+      "summary": "Dashboard и Settings проходят полный визуальный аудит, release bundle показывает иконку Codex Manager и получает проверяемые обновления из отдельного бинарного канала.",
+      "highlights": [
+        "Dashboard снова использует нативные групповые контейнеры и отдельные системные кнопки вместо плоского полотна и одной серой нижней полосы.",
+        "Summary-блоки, источники, маршруты и агенты открывают следующий уровень в transient popover с явным переходом в соответствующий раздел Settings.",
+        "Settings больше не рисуется под titlebar, получил поиск по sidebar и согласованные grouped/inset rows во всех разделах.",
+        "Release bundle работает как обычное приложение macOS с собственной иконкой в Dock; тестовые процессы Python не используются для визуальной приёмки.",
+        "Standalone-updater загружает DMG, проверяет SHA-256, bundle identifier, версию и code signature, заменяет приложение с rollback и перезапускает его.",
+        "Приватный репозиторий и авторизации не раскрываются: update-feed и бинарники рассчитаны на отдельный публичный release-only канал без GitHub-токена внутри приложения."
+      ]
+    },
+    {
+      "version": "0.8.4",
+      "date": "2026-09-02",
+      "title": "Нативные лимиты и системные состояния AppKit",
+      "summary": "Dashboard и Settings используют штатный выбор периода, компактные таблицы и системные hover/selection вместо диагностического многострочного текста.",
+      "highlights": [
+        "Лимиты аккаунтов переключаются между реальными окнами «5 часов» и «Неделя» через NSSegmentedControl; месячный период не синтезируется.",
+        "Каждый аккаунт занимает одну нативную строку с тарифом, остатком и полной датой сброса выбранного периода.",
+        "Dashboard использует системный momentary segmented control для нижней панели действий и AppKit-managed recessed hover для summary-блоков.",
+        "Settings получили стандартный preferences titlebar, более читаемую системную типографику и отдельный выбор периода в разделе лимитов.",
+        "Неизвестная дата подписки больше не засоряет компактный Dashboard; введённая пользователем дата остаётся доступна в Settings."
+      ]
+    },
+    {
+      "version": "0.8.3",
+      "date": "2026-09-02",
+      "title": "Полный runtime после обновления 0.7.7",
+      "summary": "Переходный updater переносит standalone bootstrap и подписывает локально собранный legacy bundle.",
+      "highlights": [
+        "standalone_bootstrap.py входит в транзакционный список staged runtime-файлов и больше не теряется при обновлении из 0.7.7.",
+        "Локально собранный переходный .app получает ad-hoc подпись и проверяется codesign до замены рабочего bundle.",
+        "LaunchAgent запускается только после проверки полного runtime и сохраняет прежний rollback при любой ошибке.",
+        "Для скачиваемого на другой Mac DMG по-прежнему требуется Developer ID и notarization Apple; ad-hoc подпись не заменяет доверенную дистрибуцию."
+      ]
+    },
+    {
+      "version": "0.8.2",
+      "date": "2026-09-02",
+      "title": "Надёжный переход с установленной 0.7.7",
+      "summary": "Upgrade больше не подставляет историческую версию 0.7.7 при сборке скачанного релиза.",
+      "highlights": [
+        "Целевая версия читается непосредственно из app_metadata.py точного detached release worktree.",
+        "Ожидаемая updater-версия дополнительно сравнивается с метаданными скачанного релиза и несовпадение останавливает установку.",
+        "Переход 0.7.7 → 0.8.2 сохраняет прежний fail-closed rollback для runtime, bundle, LaunchAgent и config.",
+        "Исправления 0.8.1 — запуск через Codex runtime приложения ChatGPT и обновлённые Stable/Candidate каналы — входят в 0.8.2."
+      ]
+    },
+    {
+      "version": "0.8.1",
+      "date": "2026-09-02",
+      "title": "Запуск без отдельного Codex CLI и доставка обновления",
+      "summary": "Manager использует уже установленный runtime приложения ChatGPT/Codex и публикует исправление одновременно в Stable и Candidate.",
+      "highlights": [
+        "Если отдельного Codex CLI нет, Manager находит исполняемый Codex внутри установленного приложения ChatGPT/Codex и не требует дополнительной установки.",
+        "Codex runtime остаётся внутри приложения OpenAI: Manager не копирует, не обновляет и не встраивает его в свой bundle.",
+        "Устаревший или отсутствующий codex_binary безопасно заменяется найденным desktop runtime без изменения аккаунтов, vault slots и других настроек.",
+        "Версия 0.8.1 опубликована в Stable и Candidate, поэтому установки 0.7.x из checkout больше не остаются на старом feed 0.7.6."
+      ]
+    },
+    {
+      "version": "0.8.0",
+      "date": "2026-09-02",
+      "title": "Автономное приложение и реальные лимиты аккаунтов",
+      "summary": "Candidate поставляется обычным Universal 2 приложением в DMG и показывает фактические 5-часовые и недельные окна Codex для каждого аккаунта.",
+      "highlights": [
+        "В DMG находится готовый Codex Manager.app: пользователь переносит его в Applications без установки Python, Git, Node.js, Command Line Tools или локальной сборки.",
+        "Codex CLI не встраивается и остаётся отдельным официальным инструментом; Manager на первом запуске находит уже установленный и авторизованный Codex.",
+        "Первоначальная настройка создаёт только Manager-owned state и первый защищённый vault slot, не удаляя и не перезаписывая существующие авторизации.",
+        "Dashboard и Settings показывают остаток 5-часового и недельного окон, точное локальное время сброса и тариф аккаунта.",
+        "Дата продления или окончания подписки хранится отдельно для каждого аккаунта и задаётся пользователем, поскольку Codex account API её не возвращает.",
+        "Автономный bundle собирается Universal 2 для Apple Silicon и Intel, содержит все runtime-зависимости Manager и не содержит Codex binary или пользовательские credentials."
+      ]
+    },
+    {
+      "version": "0.7.7",
+      "date": "2026-08-19",
+      "title": "Rich native dashboard и обновления без Terminal",
+      "summary": "Candidate реализует rich AppKit dashboard по макетам, отдельные системные Settings, локализацию и in-app обновление по stable/candidate каналам.",
+      "highlights": [
+        "Основной status-bar UI — rich NSPopover, близкий к целевому макету 19_09_19: четыре summary-блока, Sources, Usage, Planned Routes, Resources и Live.",
+        "Внутри используются AppKit system materials, dynamic separator outlines, NSTableView/NSScrollView, NSPopUpButton, NSButton, SF Symbols, dynamic colors и системная типографика.",
+        "Списки и действия получают штатные hover, focus, selection и keyboard/VoiceOver behavior без custom tracking areas, capsules и painted arrows.",
+        "Settings открывается отдельным окном с NSSplitView, Sidebar source-list, inset NSTableView, radio controls и безопасным добавлением новой роли без перезаписи существующих.",
+        "Открытие Codex Manager.app передаёт проверенному LaunchAgent локальный reopen-сигнал и не создаёт дублирующий menu-bar процесс.",
+        "Поддерживаются System, Русский, English, Español и Français; ручной язык сохраняется только для Codex Manager.",
+        "Candidate-канал отслеживает точный commit ветки, поэтому тестовые сборки обнаруживаются без ручного git pull.",
+        "Нажатие Обновить больше не открывает Terminal и не переключает рабочую ветку: установка идёт из detached temporary worktree.",
+        "Окно обновления показывает этапы загрузки, подготовки, установки и перезапуска со spinner и журналом ошибок.",
+        "Update installer теперь входит в установленный runtime, а не остаётся только в checkout проекта."
+      ]
+    },
+    {
+      "version": "0.7.6",
+      "date": "2026-08-19",
+      "title": "Авторизации сначала сверяют личность",
+      "summary": "Fail-closed reconciliation защищает A1/A2/A3, а утверждённая визуальная система и компактная шторка проходят полный macOS release gate.",
+      "highlights": [
+        "Live Codex auth сопоставляется с ровно одним vault slot по account identity до startup probes и переключений.",
+        "Identity и запись используют один immutable snapshot; подмена live-файла между проверкой и копированием не может затереть A3.",
+        "A1/A2/A3 не удаляются автоматически, а ручное удаление ограничено отдельным подтверждённым vault slot.",
+        "Auth writes сериализованы, создают backup 0600 и атомарно заменяют только подтверждённый slot.",
+        "PyObjC regression tests покрывают Welcome, About, Update и Changelog controllers.",
+        "CI передаёт и проверяет встроенный release-feed.json при сборке Codex Manager.app.",
+        "Main/Active/Idle/Disabled и плоские colour/template glyphs образуют согласованную систему иконок.",
+        "Шторка отделяет фактических оркестратора/субагентов от источника следующего запуска и запланированных маршрутов.",
+        "Открытие меню читает routing snapshot без автоматического переключения backend.",
+        "Accessory activation policy убирает внешний Python из Dock, сохраняя Finder icon и нативные окна Manager.",
+        "Шторка показывает аккаунт и короткую модель без GPT/GGC/DSK, а число работающих агентов — без текстового кружка."
+      ]
+    },
+    {
+      "version": "0.7.5",
+      "date": "2026-08-18",
+      "title": "Приложение становится приложением",
+      "summary": "Настоящий macOS .app, собственная иконка Manager, единая система UI-иконок, нативные окна About и живой журнал разработки.",
+      "highlights": [
+        "Codex Manager.app устанавливается в ~/Applications и запускается через LaunchAgent из bundle executable.",
+        "Собственная иконка Manager используется в menu bar, Finder и Launchpad; runtime-state отображается маленьким цветным badge.",
+        "Provider, role, status и UI SVG собраны в единый bundled registry и проверяются до установки.",
+        "Добавлено нативное окно «О Codex Manager» с GitHub, версией, датой начала разработки, лицензией и авторством Zaur Bejerei.",
+        "CHANGELOG превращён в живой командный журнал «А что мы вообще делали и зачем?» и показывается прямо в приложении.",
+        "Установка и upgrade проходят staging/smoke-check до замены рабочего runtime."
+      ]
+    },
+    {
+      "version": "0.7.4",
+      "date": "2026-08-18",
+      "title": "Иконки и стабильность установки",
+      "summary": "Полный bundled icon pack, state/logging boundary и защита upgrade от неудачной установки.",
+      "highlights": [
+        "Добавлены SVG провайдеров, ролей, статусов и собственный hub Codex Manager.",
+        "Иконки больше не зависят от CDN во время upgrade.",
+        "Появился codex-manager stability.",
+        "Исправлена zsh-ошибка, где переменная path уничтожала системный PATH."
+      ]
+    },
+    {
+      "version": "0.7.3",
+      "date": "2026-08-18",
+      "title": "Архитектурная стабилизация",
+      "summary": "Пути, логирование и состояние вынесены из исторических compatibility-слоёв в независимые сервисы.",
+      "highlights": [
+        "Централизованы macOS paths.",
+        "Добавлено структурированное логирование.",
+        "State schema получила validation и atomic writes."
+      ]
+    },
+    {
+      "version": "0.7.2",
+      "date": "2026-08-17",
+      "title": "Cocoa больше не спорит с меню",
+      "summary": "Compact menu перестал reparent-ить уже прикреплённые NSMenuItem.",
+      "highlights": [
+        "Исправлен NSInternalInconsistencyException при запуске.",
+        "Зафиксированы безопасные правила ownership для Cocoa menu items."
+      ]
+    },
+    {
+      "version": "0.7.1",
+      "date": "2026-08-17",
+      "title": "Режимы начинают учитывать реальные ресурсы",
+      "summary": "Quality/Balance/Productivity/Economy получили source-aware приоритеты и корректную работу с A1/A2/A3.",
+      "highlights": [
+        "Router выбирает конкретный OpenAI Compute Source, а не абстрактный GPT backend.",
+        "Старые GigaChat 429 больше не считаются свежими из-за mtime лог-файла."
+      ]
+    },
+    {
+      "version": "0.7.0",
+      "date": "2026-08-17",
+      "title": "Work Modes",
+      "summary": "Economy, Balanced, Productivity, Quality и Manual стали единым пользовательским policy-layer.",
+      "highlights": [
+        "Режимы учитывают стоимость, качество, parallelism и остатки ресурсов.",
+        "Capability-tier сохраняется прежде, чем разрешается деградация силы модели."
+      ]
+    }
+  ]
+}
