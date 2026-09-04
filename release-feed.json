@@ -1,23 +1,39 @@
 {
   "schema": 2,
   "channel": "stable",
-  "latest": "0.8.6",
+  "latest": "0.8.7",
   "repository": "zaurocrvjob/codex-manager-releases",
   "channels": {
     "stable": {
-      "latest": "0.8.6",
-      "ref": "v0.8.6",
-      "commit": "cb20a5b04ac6d0b2b910923d58a15510e81ec3e9",
+      "latest": "0.8.7",
+      "ref": "v0.8.7",
+      "commit": "e5e51883539a35be203fac7cba54981abfd94b8c",
       "track_commit": false
     },
     "candidate": {
-      "latest": "0.8.6",
-      "ref": "v0.8.6",
-      "commit": "cb20a5b04ac6d0b2b910923d58a15510e81ec3e9",
+      "latest": "0.8.7",
+      "ref": "v0.8.7",
+      "commit": "e5e51883539a35be203fac7cba54981abfd94b8c",
       "track_commit": false
     }
   },
   "releases": [
+    {
+      "version": "0.8.7",
+      "date": "2026-09-04",
+      "title": "Надёжный TLS для автономного обновления",
+      "summary": "Standalone-приложение включает собственный Mozilla CA bundle и проверяет через него как публичный release feed, так и загружаемый DMG.",
+      "highlights": [
+        "Frozen-сборка больше не зависит от отсутствующего Python certificate store на другом Mac и сохраняет полную TLS-проверку.",
+        "Один доверенный CA context используется для загрузки release feed и бинарного обновления; отключение проверки сертификата не допускается.",
+        "В релизный bundle явно включён закреплённый certifi CA bundle.",
+        "Встроенный standalone-update-feed-probe проверяет реальный HTTPS/feed/download contract непосредственно из собранного приложения до публикации.",
+        "После сетевой ошибки автоматическая проверка повторяется через пять минут, а не ждёт полный пользовательский интервал."
+      ],
+      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.8.7/Codex-Manager-0.8.7-macOS.dmg",
+      "sha256": "3165a3f19d72b4c76857944fbec7048104665262bec7b0ab734a96334dea0fef",
+      "commit": "e5e51883539a35be203fac7cba54981abfd94b8c"
+    },
     {
       "version": "0.8.6",
       "date": "2026-09-04",
@@ -29,10 +45,7 @@
         "Ручной вход выполняется в изолированном CODEX_HOME и не меняет текущий host account до явного переключения.",
         "Ошибки конфигурации, неоднозначная identity, symlink и выход за vault останавливают регистрацию без изменения существующих credentials.",
         "Standalone-приложение проверяет публичный binary-only feed и открывает публичную страницу релиза вместо приватного репозитория исходников."
-      ],
-      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.8.6/Codex-Manager-0.8.6-macOS.dmg",
-      "sha256": "e16945fc1279ed44dc51c390f7788647c0fed2250d067ba2a696bde95ccac7ca",
-      "commit": "cb20a5b04ac6d0b2b910923d58a15510e81ec3e9"
+      ]
     },
     {
       "version": "0.8.5",
