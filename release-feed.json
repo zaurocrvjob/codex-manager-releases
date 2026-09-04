@@ -1,23 +1,37 @@
 {
   "schema": 2,
   "channel": "stable",
-  "latest": "0.8.7",
+  "latest": "0.9.0",
   "repository": "zaurocrvjob/codex-manager-releases",
   "channels": {
     "stable": {
-      "latest": "0.8.7",
-      "ref": "v0.8.7",
-      "commit": "e5e51883539a35be203fac7cba54981abfd94b8c",
+      "latest": "0.9.0",
+      "ref": "v0.9.0",
+      "commit": "b42ba41e4932e04ba6867444933fc555ea0eae8f",
       "track_commit": false
     },
     "candidate": {
-      "latest": "0.8.7",
-      "ref": "v0.8.7",
-      "commit": "e5e51883539a35be203fac7cba54981abfd94b8c",
+      "latest": "0.9.0",
+      "ref": "v0.9.0",
+      "commit": "b42ba41e4932e04ba6867444933fc555ea0eae8f",
       "track_commit": false
     }
   },
   "releases": [
+    {
+      "version": "0.9.0",
+      "date": "2026-09-05",
+      "title": "Нативные аккаунты и доказуемое выполнение",
+      "summary": "Нативное добавление аккаунтов, единый план Work Mode и журнал фактических запусков.",
+      "highlights": [
+        "Добавление аккаунта через одноразовый код и Chrome с отдельной командой переключения.",
+        "Единая execution policy, Manager Dispatcher и authoritative Live telemetry.",
+        "Независимые ресурсы 5 часов, недели и credits; сохранены исправления TLS."
+      ],
+      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.9.0/Codex-Manager-0.9.0-macOS.dmg",
+      "sha256": "48c57b94b1373f5e4aab49bd2b2e405dafcad9d4dcdbdb4951123708c67436c1",
+      "commit": "b42ba41e4932e04ba6867444933fc555ea0eae8f"
+    },
     {
       "version": "0.8.7",
       "date": "2026-09-04",
