@@ -1,23 +1,37 @@
 {
   "schema": 2,
   "channel": "stable",
-  "latest": "0.9.1",
+  "latest": "0.9.2",
   "repository": "zaurocrvjob/codex-manager-releases",
   "channels": {
     "stable": {
-      "latest": "0.9.1",
-      "ref": "v0.9.1",
-      "commit": "2a58d61ca96077941d7657ce579d6bdd391135bd",
+      "latest": "0.9.2",
+      "ref": "v0.9.2",
+      "commit": "ae40c2fb29b41d143821cd69efe3295856b51066",
       "track_commit": false
     },
     "candidate": {
-      "latest": "0.9.1",
-      "ref": "v0.9.1",
-      "commit": "2a58d61ca96077941d7657ce579d6bdd391135bd",
+      "latest": "0.9.2",
+      "ref": "v0.9.2",
+      "commit": "ae40c2fb29b41d143821cd69efe3295856b51066",
       "track_commit": false
     }
   },
   "releases": [
+    {
+      "version": "0.9.2",
+      "date": "2026-09-05",
+      "title": "Обновление можно открыть повторно",
+      "summary": "Закрытое окно установки снова доступно из настроек. Сброс настроек и авторизаций не требуется.",
+      "highlights": [
+        "В разделе Обновления есть отдельная кнопка «Открыть обновление…», пока новая версия доступна.",
+        "Ручная проверка повторно открывает приглашение после крестика или «Позже». Автоматические проверки не повторяют одно приглашение постоянно.",
+        "Ошибка проверки, пропущенная версия и ещё не выполненная проверка больше не обозначаются как актуальная версия."
+      ],
+      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.9.2/Codex-Manager-0.9.2-macOS.dmg",
+      "sha256": "27c5594ac04fdedcf493397249d238ac8cec9f924311247c704213c5b81ea5f6",
+      "commit": "ae40c2fb29b41d143821cd69efe3295856b51066"
+    },
     {
       "version": "0.9.1",
       "date": "2026-09-05",
