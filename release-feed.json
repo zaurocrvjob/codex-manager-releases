@@ -1,36 +1,51 @@
 {
   "schema": 2,
   "channel": "stable",
-  "latest": "0.9.0",
+  "latest": "0.9.1",
   "repository": "zaurocrvjob/codex-manager-releases",
   "channels": {
     "stable": {
-      "latest": "0.9.0",
-      "ref": "v0.9.0",
-      "commit": "b42ba41e4932e04ba6867444933fc555ea0eae8f",
+      "latest": "0.9.1",
+      "ref": "v0.9.1",
+      "commit": "2a58d61ca96077941d7657ce579d6bdd391135bd",
       "track_commit": false
     },
     "candidate": {
-      "latest": "0.9.0",
-      "ref": "v0.9.0",
-      "commit": "b42ba41e4932e04ba6867444933fc555ea0eae8f",
+      "latest": "0.9.1",
+      "ref": "v0.9.1",
+      "commit": "2a58d61ca96077941d7657ce579d6bdd391135bd",
       "track_commit": false
     }
   },
   "releases": [
     {
+      "version": "0.9.1",
+      "date": "2026-09-05",
+      "title": "Понятные аккаунты и честный Live",
+      "summary": "Читаемый интерфейс, отдельный подсчёт задач и субагентов, добавление аккаунта из настроек и исправление установки обновлений.",
+      "highlights": [
+        "Название аккаунта видно в панели. В строке меню — короткий номер, общее число работающих исполнителей и ограничивающий лимит; без лишней модели.",
+        "Задачи и субагенты считаются отдельно. Завершённый родитель не становится работающим из-за активного потомка, а неизвестные данные не подменяются настройками.",
+        "Добавить аккаунт можно в разделе Источники. Настоящий вход проверен в собранном приложении; переключение выполняется отдельно и блокируется при занятости.",
+        "Исправлены обрезанные лимиты, светлая тема и комплект legacy-обновления. Авторизации сохраняются; старые версии не перезаписываются."
+      ],
+      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.9.1/Codex-Manager-0.9.1-macOS.dmg",
+      "sha256": "adab35cc5d19d42633d837261bb4668f785b371397f529b8bb14f1ca372a8b79",
+      "commit": "2a58d61ca96077941d7657ce579d6bdd391135bd"
+    },
+    {
       "version": "0.9.0",
       "date": "2026-09-05",
       "title": "Нативные аккаунты и доказуемое выполнение",
-      "summary": "Нативное добавление аккаунтов, единый план Work Mode и журнал фактических запусков.",
+      "summary": "Codex Manager добавляет OpenAI-аккаунты без Terminal, строит один план Work Mode, явно запускает mixed-provider workers и отделяет план от фактической Live-телеметрии.",
       "highlights": [
-        "Добавление аккаунта через одноразовый код и Chrome с отдельной командой переключения.",
-        "Единая execution policy, Manager Dispatcher и authoritative Live telemetry.",
-        "Независимые ресурсы 5 часов, недели и credits; сохранены исправления TLS."
-      ],
-      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.9.0/Codex-Manager-0.9.0-macOS.dmg",
-      "sha256": "48c57b94b1373f5e4aab49bd2b2e405dafcad9d4dcdbdb4951123708c67436c1",
-      "commit": "b42ba41e4932e04ba6867444933fc555ea0eae8f"
+        "Нативное окно добавления аккаунта использует изолированный Codex device-code flow, открывает ссылку в выбранном профиле Chrome и не меняет активный slot до отдельной команды.",
+        "Account Registry хранит отдельные fail-closed vault slots; OpenAI capacity моделируется независимыми 5-часовым, недельным и credit ресурсами.",
+        "Economy, Balanced, Productivity, Quality и Manual используют одну execution policy для primary, ролей, capability tiers, capacity и fallback.",
+        "Manager Dispatcher запускает worker с явными provider/model/source, а authoritative ledger показывает planned и actual execution, origin, lifecycle и fallback reason без prompt, response или credentials.",
+        "Dashboard, Settings, CLI и Live читают единый план и телеметрию; read-only пути не мигрируют state и не переключают аккаунт.",
+        "Standalone-приложение остаётся Universal 2, получает binary-only обновление по проверенному TLS feed и включает полный runtime без Git, Python или исходного checkout."
+      ]
     },
     {
       "version": "0.8.7",
@@ -43,10 +58,7 @@
         "В релизный bundle явно включён закреплённый certifi CA bundle.",
         "Встроенный standalone-update-feed-probe проверяет реальный HTTPS/feed/download contract непосредственно из собранного приложения до публикации.",
         "После сетевой ошибки автоматическая проверка повторяется через пять минут, а не ждёт полный пользовательский интервал."
-      ],
-      "asset_url": "https://github.com/zaurocrvjob/codex-manager-releases/releases/download/v0.8.7/Codex-Manager-0.8.7-macOS.dmg",
-      "sha256": "3165a3f19d72b4c76857944fbec7048104665262bec7b0ab734a96334dea0fef",
-      "commit": "e5e51883539a35be203fac7cba54981abfd94b8c"
+      ]
     },
     {
       "version": "0.8.6",
